@@ -1,4 +1,4 @@
-package com.github.fabriciolfj.controlenergyexpenditure.providers.repository
+package com.github.fabriciolfj.controlenergyexpenditure.adapters.repository
 
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
@@ -11,10 +11,10 @@ import java.time.LocalDateTime
 
 @Table(name = "gastos")
 @Entity
-data class ConsumeEntity(
+data class ConsumeData(
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var id: Long,
+        var id: Long?,
         @Column(name = "nome_pessoa", nullable = false)
         var name: String,
         @Column(name = "codigo", nullable = false)

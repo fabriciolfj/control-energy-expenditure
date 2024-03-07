@@ -1,0 +1,5 @@
+package com.github.fabriciolfj.controlenergyexpenditure.exceptionshandler.exceptions
+
+import com.github.fabriciolfj.controlenergyexpenditure.exceptionshandler.enums.ErrorsEnum
+
+class ConsumeNotFoundException : RuntimeException(ErrorsEnum.CODE_CONSUME_NOT_FOUND.getMessage())
