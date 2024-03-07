@@ -17,6 +17,8 @@ data class ConsumeEntity(
         var id: Long,
         @Column(name = "nome_pessoa", nullable = false)
         var name: String,
+        @Column(name = "codigo", nullable = false)
+        var code: String,
         @Column(name = "descricao", nullable = false)
         var description: String,
         @Column(name = "data_hora", nullable = false)
