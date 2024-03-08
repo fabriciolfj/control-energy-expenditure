@@ -2,6 +2,7 @@ package com.github.fabriciolfj.controlenergyexpenditure.exceptionshandler.advice
 
 import com.github.fabriciolfj.controlenergyexpenditure.exceptionshandler.dto.MessageErrorDTO
 import com.github.fabriciolfj.controlenergyexpenditure.exceptionshandler.enums.ErrorsEnum
+import com.github.fabriciolfj.controlenergyexpenditure.exceptionshandler.exceptions.ConsumeNotFoundException
 import jakarta.validation.ConstraintViolationException
 import org.springframework.context.MessageSource
 import org.springframework.context.i18n.LocaleContextHolder
@@ -29,6 +30,12 @@ class RestControllerAdvice(private val messageSource: MessageSource) {
         }.toList()
 
         return ResponseEntity.badRequest().body(MessageErrorDTO(ErrorsEnum.INVALID_REQUEST.getMessage(), HttpStatus.BAD_REQUEST.toString(), result))
+    }
+
+    @ExceptionHandler(ConsumeNotFoundException::class)
+    fun handleConsumeNotFoundException(ex: ConsumeNotFoundException) : ResponseEntity<*>? {
+        val dto = MessageErrorDTO(ex.message, HttpStatus.BAD_REQUEST.toString())
+        return ResponseEntity.badRequest().body(dto)
     }
 
 }
