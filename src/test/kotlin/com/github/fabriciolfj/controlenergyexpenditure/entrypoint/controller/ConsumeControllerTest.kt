@@ -4,6 +4,7 @@ import com.github.fabriciolfj.controlenergyexpenditure.ControlEnergyExpenditureA
 import com.github.fabriciolfj.controlenergyexpenditure.adapters.repository.ConsumeData
 import com.github.fabriciolfj.controlenergyexpenditure.adapters.repository.ConsumeRepository
 import com.github.fabriciolfj.controlenergyexpenditure.fixture.ConsumeDataFixture
+import com.github.fabriciolfj.controlenergyexpenditure.fixture.ConsumeDataFixture.Companion.toValid
 import com.github.fabriciolfj.controlenergyexpenditure.fixture.ConsumeDataFixture.Companion.toValids
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.DisplayName
@@ -20,6 +21,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
+import java.util.*
 
 class ConsumeControllerTest : ControlEnergyExpenditureApplicationTests() {
 
@@ -60,5 +62,27 @@ class ConsumeControllerTest : ControlEnergyExpenditureApplicationTests() {
         result.andExpect(status().is2xxSuccessful)
                 .andExpect(jsonPath("$.length()").value(2))
 
+    }
+
+    @Test
+    @DisplayName("find one consume success")
+    fun testFindOneConsumeSuccess() {
+        whenever(repository.findByCode(any())).thenReturn(Optional.of(toValid()))
+
+        val result = mvc.perform(get("/v1/api/consume/" + UUID.randomUUID().toString())
+                .contentType(MediaType.APPLICATION_JSON))
+
+        result.andExpect(status().is2xxSuccessful)
+    }
+
+    @Test
+    @DisplayName("find one consume not success")
+    fun testFindOneConsumeNotSuccess() {
+        whenever(repository.findByCode(any())).thenReturn(Optional.empty())
+
+        val result = mvc.perform(get("/v1/api/consume/" + UUID.randomUUID().toString())
+                .contentType(MediaType.APPLICATION_JSON))
+
+        result.andExpect(status().is4xxClientError)
     }
 }
