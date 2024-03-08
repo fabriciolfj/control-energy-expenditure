@@ -5,6 +5,9 @@ import com.github.fabriciolfj.controlenergyexpenditure.entities.ReportConsumeEnt
 import com.github.fabriciolfj.controlenergyexpenditure.usecase.FindListConsumesProvider
 import com.github.fabriciolfj.controlenergyexpenditure.usecase.ListConsumesUseCase
 import org.slf4j.LoggerFactory
+import org.springframework.transaction.annotation.Isolation
+import org.springframework.transaction.annotation.Propagation
+import org.springframework.transaction.annotation.Transactional
 import java.time.LocalDate
 import java.time.LocalDateTime
 import java.time.LocalTime
@@ -16,6 +19,7 @@ class ListConsumesUseCaseImpl(private val findListConsumesProvider: FindListCons
         val logger = LoggerFactory.getLogger(ListConsumesUseCaseImpl::class.java)
     }
 
+    @Transactional(propagation = Propagation.NEVER, readOnly = true, isolation = Isolation.READ_COMMITTED)
     override fun execute(dateInit: LocalDate, dateEnd: LocalDate, page: Int) : ReportConsumeEntity {
         val report = findListConsumesProvider.process(page, dateInit.atStartOfDay(), LocalDateTime.of(dateEnd, LocalTime.MAX))
 
