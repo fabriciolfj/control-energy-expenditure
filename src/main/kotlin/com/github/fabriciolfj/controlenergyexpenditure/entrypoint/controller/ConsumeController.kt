@@ -27,7 +27,7 @@ import java.time.LocalDate
 
 @Validated
 @RestController
-@RequestMapping("v1/api/consume")
+@RequestMapping("/v1/api/consume")
 class ConsumeController(private val createUseCase: ConsumeCreateUseCase,
                         private val findConsumeUseCase: FindConsumeUseCase,
                         private val reportAverageConsumeUseCase: ReportAverageConsumeUseCase,
