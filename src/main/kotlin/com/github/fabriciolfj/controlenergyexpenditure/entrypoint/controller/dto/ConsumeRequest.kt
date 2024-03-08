@@ -6,11 +6,11 @@ import jakarta.validation.constraints.Positive
 import java.math.BigDecimal
 
 data class ConsumeRequest(@get:NotBlank(message = "name not informed")
-                          val name: String,
+                          val name: String?,
                           @get:NotBlank(message = "description not informed")
-                          val description: String,
+                          val description: String?,
                           @get:NotNull(message = "value not informed")
                           @get:Positive(message = "is no more than zero")
-                          val value: BigDecimal,
+                          val value: BigDecimal?,
                           @get:NotBlank(message = "tag not informed")
-                          val tag: String)
+                          val tag: String?)

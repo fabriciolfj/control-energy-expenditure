@@ -14,11 +14,11 @@ class ConsumeMapper {
     companion object {
         fun toEntity(consume: ConsumeRequest) =
                 ConsumeEntity(UUID.randomUUID().toString(),
-                        consume.name,
-                        consume.description,
+                        consume.name!!,
+                        consume.description!!,
                         LocalDateTime.now(),
-                        consume.value,
-                        consume.tag)
+                        consume.value!!,
+                        consume.tag!!)
 
         fun toResponse(entity: ConsumeEntity) =
                 ConsumeResponse(entity.name,
