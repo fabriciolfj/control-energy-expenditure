@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "09c97054-47e2-4d27-9d9e-65e9b58dc4e5",
+		"name": "gastos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2011322",
+		"_collection_link": "https://speeding-capsule-316871.postman.co/workspace/workspace_2~12743ef0-8739-444f-986c-eeda1fbeb61c/collection/2011322-09c97054-47e2-4d27-9d9e-65e9b58dc4e5?action=share&source=collection_link&creator=2011322"
+	},
+	"item": [
+		{
+			"name": "List all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/v1/api/consume?dateInit=2024-03-08&dateEnd=2024-03-08",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"api",
+						"consume"
+					],
+					"query": [
+						{
+							"key": "dateInit",
+							"value": "2024-03-08"
+						},
+						{
+							"key": "dateEnd",
+							"value": "2024-03-08"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Report",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/v1/api/consume?dateInit=2024-03-08&dateEnd=2024-03-08",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"api",
+						"consume"
+					],
+					"query": [
+						{
+							"key": "dateInit",
+							"value": "2024-03-08"
+						},
+						{
+							"key": "dateEnd",
+							"value": "2024-03-08"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find by code",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/v1/api/consume?dateInit=2024-03-08&dateEnd=2024-03-08",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"api",
+						"consume"
+					],
+					"query": [
+						{
+							"key": "dateInit",
+							"value": "2024-03-08"
+						},
+						{
+							"key": "dateEnd",
+							"value": "2024-03-08"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create gastos",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"casa\",\n  \"description\": \"conta da semana\",\n  \"value\": 190.00,\n  \"tag\": \"domestico\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/v1/api/consume",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"api",
+						"consume"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
