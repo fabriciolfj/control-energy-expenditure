@@ -5,5 +5,5 @@ create table gastos (
     descricao       varchar(255)   not null,
     valor           numeric(15,4)  not null,
     data_hora       timestamp      not null,
-    tag             varchar(30)    not null,
+    tag             varchar(30)    not null
 );

@@ -40,7 +40,7 @@ class ConsumeController(private val createUseCase: ConsumeCreateUseCase,
 
     @GetMapping("/{code}")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    fun findConsume(@ParameterInformed @PathVariable("code") code: String) : ConsumeResponse {
+    fun findConsume(@ParameterInformed(alias = "code") @PathVariable("code") code: String) : ConsumeResponse {
         logger.info("M findConsume, payload: $code")
         val entity = findConsumeUseCase.execute(code)
 

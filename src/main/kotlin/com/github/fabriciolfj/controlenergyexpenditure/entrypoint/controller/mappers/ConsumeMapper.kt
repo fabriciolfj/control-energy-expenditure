@@ -19,6 +19,7 @@ class ConsumeMapper {
 
         fun toResponse(entity: ConsumeEntity) =
                 ConsumeResponse(entity.name,
+                        entity.code,
                         entity.description,
                         entity.dateTime,
                         entity.value,

@@ -4,6 +4,7 @@ import java.math.BigDecimal
 import java.time.LocalDateTime
 
 data class ConsumeResponse(val name: String,
+                           val code: String,
                            val description: String,
                            val dateTime: LocalDateTime,
                            val value: BigDecimal,

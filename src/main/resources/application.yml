@@ -15,7 +15,7 @@ springdoc:
 
 spring:
   application:
-    name: loan-shark
+    name: control-energy
   data:
     redis:
       url: redis://127.0.0.1:6379
