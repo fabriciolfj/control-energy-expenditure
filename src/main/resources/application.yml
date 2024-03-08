@@ -71,13 +71,7 @@ logging:
 api:
   common:
     version: 1.0.0
-    title: Loan Shark API
-    description: Create loan suggestions
+    title: Gastos API
+    description: Control consumes
     contact:
       email: fabricio.jacob@outlook.com
-  loan-controller:
-    description: Create suggestion loan
-    summary: Create loan
-  response-codes:
-    badRequest: Input data invalids
-    creation: Request creation suggestion loan success
