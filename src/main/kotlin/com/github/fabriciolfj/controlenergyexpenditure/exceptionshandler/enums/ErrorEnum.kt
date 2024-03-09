@@ -5,8 +5,7 @@ import java.util.*
 enum class ErrorsEnum {
 
     INVALID_REQUEST,
-    CODE_CONSUME_NOT_FOUND,
-    VALUE_NOT_INFORMED;
+    CODE_CONSUME_NOT_FOUND;
 
     fun getMessage() : String {
         val bundle = ResourceBundle.getBundle("exceptions/message")
