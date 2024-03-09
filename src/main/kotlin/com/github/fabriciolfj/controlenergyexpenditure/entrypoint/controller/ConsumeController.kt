@@ -48,8 +48,8 @@ class ConsumeController(private val createUseCase: ConsumeCreateUseCase,
 
     @GetMapping("/report")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    fun findReport(@ParameterInformed(alias = "dateInit") @RequestParam(required = true, value = "dateInit") dateInit: String,
-                   @ParameterInformed(alias = "dateEnd") @RequestParam(required = true, value = "dateEnd") dateEnd: String,
+    fun findReport(@ParameterInformed(alias = "dateInit") @RequestParam(required = false) dateInit: String,
+                   @ParameterInformed(alias = "dateEnd") @RequestParam(required = false) dateEnd: String,
                    @RequestParam(required = false, defaultValue = "0", value = "page") page: Int) : List<ReportAverageResponse> {
 
         logger.info("M findReport, params $dateInit - $dateEnd - $page")
@@ -60,9 +60,9 @@ class ConsumeController(private val createUseCase: ConsumeCreateUseCase,
 
     @GetMapping
     @ResponseStatus(HttpStatus.ACCEPTED)
-    fun findAll(@ParameterInformed(alias = "dateInit") @RequestParam(required = true, value = "dateInit") dateInit: String,
-                   @ParameterInformed(alias = "dateEnd") @RequestParam(required = true, value = "dateEnd") dateEnd: String,
-                   @RequestParam(required = false, defaultValue = "0", value = "page") page: Int) : List<ConsumeResponse> {
+    fun findAll(@ParameterInformed(alias = "dateInit") @RequestParam(required = false) dateInit: String,
+                @ParameterInformed(alias = "dateEnd") @RequestParam(required = false) dateEnd: String,
+                @RequestParam(required = false, defaultValue = "0", value = "page") page: Int) : List<ConsumeResponse> {
 
         logger.info("M findReport, params $dateInit - $dateEnd - $page")
         val result = listConsumesUseCase.execute(LocalDate.parse(dateInit), LocalDate.parse(dateEnd), page)
