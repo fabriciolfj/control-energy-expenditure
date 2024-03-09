@@ -9,5 +9,5 @@ data class MessageErrorDTO(
         val fields: List<FieldInvalid>? = null) {
 
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    data class FieldInvalid(val message: String?, val value: String? = null)
+    data class FieldInvalid(val field :String? = null, val message: String?, val value: String? = null)
 }
